@@ -82,14 +82,14 @@ describe('stats', () => {
         startTime: 1700000000n,
         availableFees: 500000000000000000n,
       }))
-      const mockGetSwapQuote = mock.fn(async () => ({
+      const mockGetQuote = mock.fn(async () => ({
         status: RouteStatus.Success,
         assumedAmountOut: '2000000000000000000',
       }))
 
       await collectAndUpdateStats(/** @type {any} */ (config), {
         getActiveAuction: mockGetActiveAuction,
-        getSwapQuote: mockGetSwapQuote,
+        getQuote: mockGetQuote,
       })
 
       const metrics = await config.registry.metrics()
@@ -116,13 +116,13 @@ describe('stats', () => {
         startTime: 1700000000n,
         availableFees: 500000000000000000n,
       }))
-      const mockGetSwapQuote = mock.fn(async () => ({
+      const mockGetQuote = mock.fn(async () => ({
         status: RouteStatus.NoWay,
       }))
 
       await collectAndUpdateStats(/** @type {any} */ (config), {
         getActiveAuction: mockGetActiveAuction,
-        getSwapQuote: mockGetSwapQuote,
+        getQuote: mockGetQuote,
       })
 
       const metrics = await config.registry.metrics()
@@ -146,11 +146,11 @@ describe('stats', () => {
         startTime: 1700000000n,
         availableFees: 500000000000000000n,
       }))
-      const mockGetSwapQuote = mock.fn(async () => null)
+      const mockGetQuote = mock.fn(async () => null)
 
       await collectAndUpdateStats(/** @type {any} */ (config), {
         getActiveAuction: mockGetActiveAuction,
-        getSwapQuote: mockGetSwapQuote,
+        getQuote: mockGetQuote,
       })
 
       const metrics = await config.registry.metrics()
