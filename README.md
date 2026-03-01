@@ -2,6 +2,8 @@
 
 A bot that participates in Filecoin Pay dutch auctions by monitoring active auctions and placing bids at regular intervals.
 
+> The FOC WG (Filecoin Onchain Cloud Working Group) currently runs instances of the auction bot. Deployment configuration for these instances can be found in the internal infrastructure repository: https://github.com/FilOzone/infra
+
 ## Overview
 
 This bot monitors ERC20 token auctions on the [Filecoin Pay](https://github.com/FilOzone/filecoin-pay) contract and automatically places bids using FIL. The auctions use a dutch auction mechanism where prices decay exponentially over time, halving every 3.5 days.
